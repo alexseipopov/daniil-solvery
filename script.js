@@ -37,3 +37,57 @@ document.querySelectorAll(".accordion-item").forEach((elem) => {
     content.classList.toggle("open");
   });
 });
+
+//      input
+
+const inputEl = document.querySelector("#input");
+const inputLabel = document.querySelector("#inputLabel");
+
+// установить, получить, очистить весь, удалить один элемент.
+
+const saveEl = (e) => {
+  localStorage.setItem("test", e.target.value);
+};
+
+inputEl.addEventListener("change", saveEl);
+
+inputLabel.innerHTML = localStorage.getItem("test");
+
+// classes
+
+class randomClass {
+  constructor(a, b) {
+    this._a = a;
+    this._b = b;
+    this.c = 10;
+    this.d = 0;
+  }
+  randomFunc() {
+    this.d = this._a + this.c;
+  }
+}
+
+const obj = new randomClass(10, 20);
+const obj2 = new randomClass(12, 21);
+
+obj.randomFunc();
+console.log(obj.d);
+
+class someClass extends randomClass {
+  randomFunc() {
+    super.randomFunc();
+    this.d = 25;
+  }
+}
+const obj3 = new someClass(12, 21);
+
+obj3.randomFunc();
+
+console.log(obj3.d);
+
+/*  ДЗ Пример с животными: Класс: млекопитающих, кошачьи, прямоходящие.
+Сделать один общий класс, от него унаследовать еще классы (несколько видов от каждого класса)
+
+Переопределить какую-нибудь функцию, к примеру speak() (Звуки животных), walk
+
+*/
