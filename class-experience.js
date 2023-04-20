@@ -6,10 +6,10 @@
 */
 
 class animalClasses {
-  constructor(speed, sound, call) {
+  constructor(speed, sound, name) {
     this.speed = speed;
     this.sound = sound;
-    this.call = call;
+    this.name = name;
   }
   call(name) {
     this.name = name;
@@ -25,24 +25,22 @@ class animalClasses {
   }
 }
 
-const animalClass = new animalClasses(5, "Мяу", "Cat");
-animalClass.speak();
+const animalClass = new animalClasses();
+animalClass.speak("Мяу");
+animalClass.walk("5");
+animalClass.call("Cat");
 
 class dog extends animalClasses {
-  call(name) {
-    super.call();
-    this.name = "Dog";
+  speed = 0;
+  run() {
+    this.speed = 30;
   }
-  speak(sound) {
-    super.speak();
-    this.sound = "Гав";
-  }
-  walk(speed) {
+  walk() {
     super.walk();
-    this.speed = 5;
+    this.run;
   }
 }
 
-const dogClass = new dog(15, "Гав", "Dog");
+const dogClass = new dog();
 
 dogClass.walk();
