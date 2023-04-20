@@ -6,41 +6,40 @@
 */
 
 class animalClasses {
-  constructor(speed, sound, name) {
-    this.speed = speed;
-    this.sound = sound;
-    this.name = name;
+  constructor(options) {
+    this.sound = options.sound;
+    this.name = options.name;
   }
-  call(name) {
-    this.name = name;
-    console.log(this.name);
-  }
-  speak(sound) {
-    this.sound = sound;
-    console.log(this.sound);
-  }
-  walk(speed) {
-    this.speed = speed;
-    console.log(this.speed);
+  call() {
+    console.log("i am animal!");
   }
 }
 
-const animalClass = new animalClasses();
-animalClass.speak("Мяу");
-animalClass.walk("5");
-animalClass.call("Cat");
+const animalClass = new animalClasses({
+  color: "white",
+  name: "cat",
+  sound: "Meow",
+});
 
 class dog extends animalClasses {
-  speed = 0;
-  run() {
-    this.speed = 30;
+  constructor(options) {
+    super(options);
+    this.color = options.color;
   }
-  walk() {
-    super.walk();
-    this.run;
+  voice() {
+    console.log("Dog");
+  }
+  call() {
+    super.call();
+    console.log("I am not a cat!");
+    console.log("Guess who i am!");
   }
 }
 
-const dogClass = new dog();
+const dogClass = new dog({
+  color: "black",
+  name: "Dog",
+  sound: "Гав",
+});
 
-dogClass.walk();
+dogClass.call();
